@@ -1,6 +1,6 @@
-from django.conf.urls import url
+from django.urls import path
 from .consumers import TicTacToeConsumer
 
 websocket_urlpatterns = [
-    url(r'^ws/play/(?P<room_code>\w+)/$', TicTacToeConsumer.as_asgi()),
+    path('ws/play/<slug:room_code>/', TicTacToeConsumer.as_asgi()),
 ]
